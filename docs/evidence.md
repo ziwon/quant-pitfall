@@ -21,6 +21,8 @@
 
 압축 JSON과 SHA-256은 [수치 기록 manifest](results/manifest.json)에 있다. 최초 수학·합성 실험의 실행 시간·GPU·Python·torch 정보도 `historical.json.gz`에 보관한다. CIFAR-10 구성·다운로드·인용과 라이선스 확인 상태는 [데이터셋 문서](datasets.md)를 따른다. 외부 논문의 정확도를 이 프로젝트의 측정값으로 옮기지 않았다.
 
+[README 결과 지도](figures/readme/experiment-overview.svg)와 [11개 설정 정확도 그림](figures/readme/end-to-end-accuracy.svg)은 [생성 스크립트](../scripts/render_readme_figures.py)가 SHA-256을 검증한 기록에서 만든다. 클리핑·반올림·APoT는 `historical.json.gz`, 학습 비교는 `m3.json.gz`를 사용한다. 노트북 05의 10.00·92.27·92.15%와 노트북 07의 배치 128 동결 시점별 92.14·92.22·92.01%는 해당 실행의 `best_top1`을 시드 3개로 평균한 값이다. 노트북 06의 SGD·lr=10⁻⁶ 변경률 27.692%(FP32)·0.028%(FP16)는 각 한-epoch 실행의 `history[0].weight_change_fractions`를 스텝별로 평균하고 다시 시드 3개로 평균한다. 정확도나 누적 변경률과 구분한다. 노트북 09의 순서 예제는 `accumulate`로 다시 계산한다. `uv run python scripts/render_readme_figures.py --check`로 두 SVG의 최신 여부를 확인한다.
+
 `m1`·`m2`·`m3`·`m4`는 기존 기록과 실행 경로를 연결하는 식별자다. 각각 수학 실험, 상태 검증, 학습 비교, 정수 평가를 뜻한다. 측정 기록의 키와 파일명은 재현 입력의 호환성을 위해 유지한다.
 
 최초 합성 실험은 시드 0 하나로 실행했다. 수치 적분은 CPU float64, 몬테카를로 샘플은 GPU를 사용했다. 클리핑 없는 floor/nearest MSE 비는 최초 기록에서 3.998335, 다른 장비의 재실행에서 3.998671이었다. 이와 같은 샘플 추정·실행 시간의 변동은 결정적 적분 값과 구분한다.
