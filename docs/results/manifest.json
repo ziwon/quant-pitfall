@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-10",
+  "scope": "Recorded numerical inputs for rendering; not a fresh checkpoint evaluation.",
+  "archives": {
+    "m3": {
+      "file": "m3.json.gz",
+      "source": "runs/m3/notebook-data.json",
+      "sha256": "8f652697685d7e8ba4a0b9cd1500079bf1e9711b32ecc419e5f0bddc03c70870",
+      "json_sha256": "053162b15a3f86a475e73bf2905af691711283dfb26d298368740f56ce22244d",
+      "compressed_bytes": 4028343,
+      "json_bytes": 18000929
+    },
+    "m4": {
+      "file": "m4.json.gz",
+      "source": "runs/m4/results.json",
+      "sha256": "e06cf6720bd2b37389fd4be572e3a28725e7c8813ef5b1ce7a206573347a36d0",
+      "json_sha256": "3a3decce17864a41206ce3bbf1600c547f643c9ffa907ea630a7d333b0e55909",
+      "compressed_bytes": 11537,
+      "json_bytes": 251376
+    }
+  },
+  "supporting_records": {
+    "file": "historical.json.gz",
+    "sha256": "527983f02c12f12dc1b30ea10aedc94d04d17f666ff4b3b218709752f8363d47",
+    "json_sha256": "30de8c1eb16c4a2a2e8a594ac366be9e0245d1bd51c617c3f0f0135ede994fdb",
+    "scope": "Original M1/M2 environment, numerical outputs, test summaries and M3 estimate/resumed queue duration; runtime depends on hardware."
+  }
+}
