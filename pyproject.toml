@@ -1,0 +1,37 @@
+[project]
+name = "quant-pitfalls"
+version = "0.0.0"
+description = "Educational experiments for understanding neural network quantization (PTQ, QAT, integer inference)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+keywords = ["quantization", "pytorch", "education", "ptq", "qat"]
+classifiers = [
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy>=1.26",
+    "torch>=2.7",
+    "torchvision>=0.22",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+notebooks = ["jupyterlab>=4", "matplotlib>=3.8"]
+
+[build-system]
+requires = ["uv_build>=0.9,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+source-include = [
+    "docs/**", "notebooks/**", "scripts/**", "tests/**",
+    "train.py", "uv.lock", "AGENTS.md", "CONTRIBUTING.md", ".gitignore",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
